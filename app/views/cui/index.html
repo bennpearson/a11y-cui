@@ -1,0 +1,25 @@
+{% from "button/macro.njk" import govukButton %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">ActiveQuote PMI</h1>
+
+      <p class="govuk-body">Use this service to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Get insurance quotes for Private Medical Insurance</li>
+      </ul>
+
+      <p class="govuk-body">Completing this form takes around 15 minutes.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "q1",
+        classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

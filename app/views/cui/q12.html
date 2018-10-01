@@ -1,0 +1,76 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% from "radios/macro.njk" import govukRadios %}
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q13" method="post" novalidate>
+                {{ govukRadios({
+                    idPrefix: "partner-to-policy",
+                    name: "partner-to-policy",
+                    fieldset: {
+                      legend: {
+                        text: "Would you like to add any children to your quote?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                      }
+                    },
+                    hint: {
+                      text: "You can add your children to your policy, as well as your partner, to ensure that your whole family is protected. To comply with EU data protection regulations, we require the parent's consent to process the data of children under the age of 13."
+                    },
+                    items: [
+                      {
+                        value: "None",
+                        text: "None"
+                      },
+                      {
+                        value: "One Child",
+                        text: "One Child"
+                      },
+                      {
+                        value: "Two Children",
+                        text: "Two Children"
+                      },
+                      {
+                        value: "Three Children",
+                        text: "Three Children"
+                      },
+                      {
+                        value: "Four Children",
+                        text: "Four Children"
+                      },
+                      {
+                        value: "Five Children",
+                        text: "Five Children"
+                      }
+                    ]
+                  }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

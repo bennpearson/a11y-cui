@@ -1,0 +1,61 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% from "radios/macro.njk" import govukRadios %}
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q12" method="post" novalidate>
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    idPrefix: "partner-to-policy",
+                    name: "partner-to-policy",
+                    fieldset: {
+                      legend: {
+                        text: "Do you wish to add your partner to your quote?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                      }
+                    },
+                    hint: {
+                      text: "You can add your partner to your policy, as well as your children to ensure that your whole family is protected."
+                    },
+                    items: [
+                      {
+                        value: "Yes",
+                        text: "Yes"
+                      },
+                      {
+                        value: "No",
+                        text: "No"
+                      }
+                    ]
+                  }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

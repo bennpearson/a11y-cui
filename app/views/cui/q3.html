@@ -1,0 +1,58 @@
+{% from "radios/macro.njk" import govukRadios %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q4" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="gender-hint">
+              {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "gender",
+                name: "gender",
+                fieldset: {
+                  legend: {
+                    text: "Great, what's your gender?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                  text: "We need your gender to generate your quotes."
+                },
+                items: [
+                  {
+                    value: "male",
+                    text: "Male"
+                  },
+                  {
+                    value: "female",
+                    text: "Female"
+                  }
+                ]
+              }) }}
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% from "radios/macro.njk" import govukRadios %}
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q14" method="post" novalidate>
+        <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="terms-and-conditions-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h1 class="govuk-fieldset__heading">
+                            Please confirm that you have read and accept the Terms and Conditions?
+                    </h1>
+                    </legend>
+                    <span id="terms-and-conditions-hint" class="govuk-hint">
+                            Please read the <a class="govuk-link" href="#">Terms & Conditions</a>.
+
+                    </span>
+                    <div class="govuk-radios govuk-radios--inline">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="terms-and-conditions-1" name="terms-and-conditions" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="terms-and-conditions-1">
+                        Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="terms-and-conditions-2" name="terms-and-conditions" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="terms-and-conditions-2">
+                        No
+                        </label>
+                    </div>
+                    </div>
+                </fieldset>
+                </div>
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

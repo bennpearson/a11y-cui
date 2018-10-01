@@ -1,0 +1,47 @@
+{% from "date-input/macro.njk" import govukDateInput %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q5" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="govuk-hint">
+            {{ govukDateInput({
+                id: "dob",
+                namePrefix: "dob",
+                fieldset: {
+                    legend: {
+                    text: "What is your date of birth?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                },
+                hint: {
+                    text: "We ask for your date of birth as your age is a factor in determining the price of your quotes."
+                }
+                }) }}
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

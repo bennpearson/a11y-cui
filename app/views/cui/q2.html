@@ -1,0 +1,53 @@
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q3" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="first-name-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                    Thanks, what is your last name?
+                </h1>
+              </legend>
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Help with providing details
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                    We need your personal details so we can generate your quotes and create the policy documentation. Please provide us with your first name as this will be used on your policy documentation.
+                </div>
+              </details>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="last-name">
+                    Last name
+                </label>
+                <input class="govuk-input" id="last-name" name="last-name" type="text">
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

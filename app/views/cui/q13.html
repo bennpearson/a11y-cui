@@ -1,0 +1,63 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% from "radios/macro.njk" import govukRadios %}
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q14" method="post" novalidate>
+        <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="privacy-policy-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h1 class="govuk-fieldset__heading">
+                            Are you happy to receive occasional emails from ActiveQuote?
+                    </h1>
+                    </legend>
+                    <span id="privacy-policy-hint" class="govuk-hint">
+                            Please read our <a class="govuk-link" href="#">Privacy Policy</a>. ActiveQuote would like to contact you from time to time by email in order to send you marketing materials and special offers which may be of interest to you. If you would prefer not to receive these emails from ActiveQuote, answer 'No' to this question.
+
+                    </span>
+                    <div class="govuk-radios govuk-radios--inline">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="privacy-policy-1" name="privacy-policy" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="privacy-policy-1">
+                        Yes
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="privacy-policy-2" name="privacy-policy" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="privacy-policy-2">
+                        No
+                        </label>
+                    </div>
+                    </div>
+                </fieldset>
+                </div>
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

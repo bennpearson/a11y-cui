@@ -1,0 +1,83 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% from "radios/macro.njk" import govukRadios %}
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q10" method="post" novalidate>
+                {{ govukRadios({
+                    idPrefix: "changed-name",
+                    name: "changed-name",
+                    fieldset: {
+                      legend: {
+                        text: "Do you smoke?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                      }
+                    },
+                    hint: {
+                      text: "Whether you smoke or not may affect the cost of your health insurance policy. Smoking includes all tobacco and nicotine products such as cigarettes, cigars, chewing tobacco, pipes and nicotine replacement products such as e-cigarettes or 'vapes'. It is important to answer this question accurately as it may affect your cover if you need to make a claim."
+                    },
+                    items: [
+                      {
+                        value: "Non smoker",
+                        text: "Non smoker"
+                      },
+                      {
+                        divider: "or"
+                      },
+                      {
+                        value: "Smoker",
+                        text: "Smoker"
+                      },
+                      {
+                        value: "Quit less than 6 months ago",
+                        text: "Quit less than 6 months ago"
+                      },
+                      {
+                        value: "Quit less than 1 year ago",
+                        text: "Quit less than 1 year ago"
+                      },
+                      {
+                        value: "Quit less than 2 years ago",
+                        text: "Quit less than 2 years ago"
+                      },
+                      {
+                        value: "Quit less than 3 years ago",
+                        text: "Quit less than 3 years ago"
+                      },
+                      {
+                        value: "Quit over 3 years ago",
+                        text: "Quit over 3 years ago"
+                      }
+                    ]
+                  }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

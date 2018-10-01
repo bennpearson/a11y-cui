@@ -1,0 +1,46 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q8" method="post" novalidate>
+            {{ govukInput({
+                label: {
+                    text: "What is your email address?",
+                    isPageHeading: true,
+                    classes: "govuk-label--xl"
+                },
+                hint: {
+                    text: "We will never share your email with any third party without your permission. We require your email address to send policy documentation and for your insurer to contact you."
+                },
+                id: "email",
+                name: "email",
+                type: "email"
+            }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

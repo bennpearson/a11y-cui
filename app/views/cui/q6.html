@@ -1,0 +1,47 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q7" method="post" novalidate>
+
+                {{ govukInput({
+                    label: {
+                      text: "What is your phone number?",
+                      isPageHeading: true,
+                      classes: "govuk-label--xl"
+                    },
+                    hint: {
+                        text: "We require your telephone number to provide advice on the policies available to you. Health insurance can be complicated and we aim to simplify this for you."
+                    },
+                    classes: "govuk-input--width-20",
+                    id: "telephone-number",
+                    name: "telephone-number"
+                  }) }}
+
+                  {{ govukButton({
+                    text: "Continue"
+                  }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

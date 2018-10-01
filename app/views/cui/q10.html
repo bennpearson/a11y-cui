@@ -1,0 +1,61 @@
+
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "input/macro.njk" import govukInput %}
+{% from "button/macro.njk" import govukButton %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% from "radios/macro.njk" import govukRadios %}
+
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  ActiveQuote PMI
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        {{ govukBackLink({
+            text: "Back"
+          }) }}
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="q11" method="post" novalidate>
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    idPrefix: "current-policy",
+                    name: "current-policy",
+                    fieldset: {
+                      legend: {
+                        text: "Do you currently have a health insurance policy?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--xl"
+                      }
+                    },
+                    hint: {
+                      text: "If you have an existing health insurance policy we can show you 'Switch' quotes, which may allow you to transfer your existing policy underwriting to a new provider, keeping cover for any pre-existing conditions that you have developed since taking out your current policy."
+                    },
+                    items: [
+                      {
+                        value: "Yes",
+                        text: "Yes"
+                      },
+                      {
+                        value: "No",
+                        text: "No"
+                      }
+                    ]
+                  }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
