@@ -8,7 +8,7 @@
 {% block content %}
 
 <div class="govuk-width-container">
-  <a href="#" class="govuk-back-link">Back</a>
+  <a href="q1" class="govuk-back-link">Back</a>
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
@@ -19,7 +19,7 @@
             <fieldset class="govuk-fieldset" aria-describedby="first-name-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                 <h1 class="govuk-fieldset__heading">
-                    Thanks, what is your last name?
+                    Thanks {{ data['first-name'] }}, what is your last name?
                 </h1>
               </legend>
               <details class="govuk-details">
